@@ -1,0 +1,62 @@
+﻿@model EntidadesCompartidas.Vuelos
+
+@{ 
+    ViewBag.Title = "BuscarVuelo";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2 class="texto">Consultar Viaje</h2>
+
+<div class="texto">
+    <h4>Vuelos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CantAsientos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CantAsientos)
+        </dd>
+
+    </dl>
+</div>
+<div class="texto">
+    <br />
+    @Html.ActionLink("Volver al Listado", "ListadoVuelos", "Vuelos")
+</div>
+
+
+@ViewBag.Mensaje

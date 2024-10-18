@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="www.aeropuertoa.com" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Usuario\\Desktop\\Estudio\\Bios\\Obligatorios\\Proyecto\ Final\ Aerolina\ Segundo\\Nuevo\\Empleados\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Usuario\\Desktop\\Estudio\\Bios\\Obligatorios\\Proyecto\ Final\ Aerolina\ Segundo\\Nuevo\\Empleados\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+</parameters>

@@ -1,0 +1,73 @@
+﻿@model EntidadesCompartidas.Aeropuertos
+
+@{ 
+    ViewBag.Title = "EliminarAeropuerto";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h3>Esta seguro de que quiere eliminar el Aeropuerto?</h3>
+<div>
+    <h4>Aeropuertos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImpuestoPar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImpuestoPar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImpuestoLle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImpuestoLle)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad.Ciudad)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> 
+        </div>
+    }
+</div>
+
+<div>
+    <br />
+    @Html.ActionLink("Volver al Listado", "ListarAeropuertos")
+</div>
+
+@ViewBag.Mensaje

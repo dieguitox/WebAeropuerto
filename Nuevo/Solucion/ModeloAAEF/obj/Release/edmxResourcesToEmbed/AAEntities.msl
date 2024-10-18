@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AeropuertosAmericanosModelStoreContainer" CdmEntityContainer="AAEntities">
+    <EntitySetMapping Name="Adquieren">
+      <EntityTypeMapping TypeName="AeropuertosAmericanosModel.Adquieren">
+        <MappingFragment StoreEntitySet="Adquieren">
+          <ScalarProperty Name="nroPasaporte" ColumnName="nroPasaporte" />
+          <ScalarProperty Name="nroTicket" ColumnName="nroTicket" />
+          <ScalarProperty Name="nroAsiento" ColumnName="nroAsiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aeropuertos">
+      <EntityTypeMapping TypeName="AeropuertosAmericanosModel.Aeropuertos">
+        <MappingFragment StoreEntitySet="Aeropuertos">
+          <ScalarProperty Name="codigoA" ColumnName="codigoA" />
+          <ScalarProperty Name="nombreA" ColumnName="nombreA" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="impuestoPartida" ColumnName="impuestoPartida" />
+          <ScalarProperty Name="impuestoLlegada" ColumnName="impuestoLlegada" />
+          <ScalarProperty Name="codigoC" ColumnName="codigoC" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ciudades">
+      <EntityTypeMapping TypeName="AeropuertosAmericanosModel.Ciudades">
+        <MappingFragment StoreEntitySet="Ciudades">
+          <ScalarProperty Name="codigoC" ColumnName="codigoC" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="AeropuertosAmericanosModel.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="nroPasaporte" ColumnName="nroPasaporte" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+          <ScalarProperty Name="nroTarjeta" ColumnName="nroTarjeta" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleados">
+      <EntityTypeMapping TypeName="AeropuertosAmericanosModel.Empleados">
+        <MappingFragment StoreEntitySet="Empleados">
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+          <ScalarProperty Name="cargo" ColumnName="cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Venta">
+      <EntityTypeMapping TypeName="AeropuertosAmericanosModel.Venta">
+        <MappingFragment StoreEntitySet="Venta">
+          <ScalarProperty Name="nroTicket" ColumnName="nroTicket" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+          <ScalarProperty Name="nroPasaporte" ColumnName="nroPasaporte" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="codigoV" ColumnName="codigoV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vuelos">
+      <EntityTypeMapping TypeName="AeropuertosAmericanosModel.Vuelos">
+        <MappingFragment StoreEntitySet="Vuelos">
+          <ScalarProperty Name="codigoV" ColumnName="codigoV" />
+          <ScalarProperty Name="fechaD" ColumnName="fechaD" />
+          <ScalarProperty Name="fechaA" ColumnName="fechaA" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="cantAsientos" ColumnName="cantAsientos" />
+          <ScalarProperty Name="codigoA" ColumnName="codigoA" />
+          <ScalarProperty Name="codigoB" ColumnName="codigoB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

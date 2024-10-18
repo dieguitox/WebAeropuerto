@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h1>Aerolineas Americanas</h1>
+
+<table>
+
+    <tr>
+        <td> Aeropuertos </td>
+        <td> @Html.ActionLink("Aeropuertos", "ListarAeropuertos", "Aeropuertos", new { area = "" }, new { @class = "navbar-brand" }) </td>
+    </tr>
+
+    <tr>
+        <td> Ciudades </td>
+        <td> @Html.ActionLink("Ciudades", "ListadoCiudades", "Ciudades", new { area = "" }, new { @class = "navbar-brand" }) </td>
+    </tr>
+
+    <tr>
+        <td> Clientes </td>
+        <td> @Html.ActionLink("Clientes", "ListadoClientes", "Cliente", new { area = "" }, new { @class = "navbar-brand" }) </td>
+    </tr>
+
+    <tr>
+        <td> Venta </td>
+        <td> @Html.ActionLink("Ventas", "AltaVenta", "Ventas", new { area = "" }, new { @class = "navbar-brand" }) </td>
+    </tr>
+
+    <tr>
+        <td> Vuelo </td>
+        <td> @Html.ActionLink("Vuelos", "ListadoVuelos", "Vuelos", new { area = "" }, new { @class = "navbar-brand" }) </td>
+    </tr>
+
+</table>

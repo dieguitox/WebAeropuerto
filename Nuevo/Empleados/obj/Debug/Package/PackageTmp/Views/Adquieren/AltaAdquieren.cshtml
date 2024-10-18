@@ -1,0 +1,62 @@
+﻿@model EntidadesCompartidas.Adquieren
+
+@{
+    ViewBag.Title = "AltaAdquieren";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Elegir Asiento</h4>
+        <hr />
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Número de Ticket:</label>
+            <div class="col-md-10">
+                <span>@ViewBag.NroTicket</span> 
+                <input type="hidden" name="nroTicket" value="@ViewBag.NroTicket" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Código de Viaje:</label>
+            <div class="col-md-10">
+                <span>@ViewBag.CodigoViaje</span> 
+                <input type="hidden" name="codigoViaje" value="@ViewBag.CodigoViaje" /> 
+            </div>
+        </div>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.NroPasaporte.NroPasaporte, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NroPasaporte.NroPasaporte, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NroPasaporte.NroPasaporte, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.NroAsiento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NroAsiento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NroAsiento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Volver al Menu", "Menu","Home")
+</p>
+
+@ViewBag.Mensaje

@@ -1,0 +1,5 @@
+C:\Users\Usuario\Desktop\Estudio\Bios\Obligatorios\Proyecto Final Aerolina Segundo\Nuevo\Solucion\EntidadesCompartidas\bin\Release\EntidadesCompartidas.dll
+C:\Users\Usuario\Desktop\Estudio\Bios\Obligatorios\Proyecto Final Aerolina Segundo\Nuevo\Solucion\EntidadesCompartidas\bin\Release\EntidadesCompartidas.pdb
+C:\Users\Usuario\Desktop\Estudio\Bios\Obligatorios\Proyecto Final Aerolina Segundo\Nuevo\Solucion\EntidadesCompartidas\obj\Release\EntidadesCompartidas.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Desktop\Estudio\Bios\Obligatorios\Proyecto Final Aerolina Segundo\Nuevo\Solucion\EntidadesCompartidas\obj\Release\EntidadesCompartidas.dll
+C:\Users\Usuario\Desktop\Estudio\Bios\Obligatorios\Proyecto Final Aerolina Segundo\Nuevo\Solucion\EntidadesCompartidas\obj\Release\EntidadesCompartidas.pdb

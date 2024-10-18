@@ -1,0 +1,105 @@
+﻿@model IEnumerable<EntidadesCompartidas.Vuelos>
+
+@{ 
+    ViewBag.Title = "ListadoVuelos";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+<h2 class="texto">Listado de Vuelos</h2>
+
+<p class="texto">
+    @Html.ActionLink("Agregar Vuelo", "AltaVuelos")
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color texto">
+        <div class="filtro-vuelos">
+            <div>
+                @Html.Label("Aeropuerto")
+                @Html.TextBox("aero", "", new { @class = "input-filtro", placeholder = "Aeropuerto" })
+            </div>
+            <div>
+                @Html.Label("Fecha de Llegada")
+                @Html.TextBox("fecha", null, new { @type = "datetime-local", @class = "input-filtro", placeholder = "dd/mm/aaaa --:--" })
+            </div>
+            <div>
+                @Html.Label("Fecha de Salida")
+                @Html.TextBox("fechaS", "", new { @type = "datetime-local", @class = "input-filtro", placeholder = "dd/mm/aaaa --:--" })
+            </div>
+            <div>
+                <button type="submit" class="btn-filtro">Filtrar</button>
+                <button type="reset" class="btn-limpiar">Limpiar</button>
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table texto">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodA.NombreA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodB.NombreA)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CantAsientos)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (EntidadesCompartidas.Vuelos item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodA.NombreA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodB.NombreA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantAsientos)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Consultar", "BuscarVuelo", new { item.CodigoV })
+            @Html.ActionLink("Seleccionar", "SeleccionarVuelo", new { item.CodigoV })
+        </td>
+
+    </tr>
+}
+</table>
+
+<p class="texto">
+    @Html.ActionLink("Volver al Menu", "Menu", "Home")
+</p>
+
+@ViewBag.Mensaje

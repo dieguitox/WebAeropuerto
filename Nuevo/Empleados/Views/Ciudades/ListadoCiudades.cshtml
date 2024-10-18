@@ -1,0 +1,68 @@
+﻿@model IEnumerable<EntidadesCompartidas.Ciudades>
+
+@{ 
+    ViewBag.Title = "ListadoCiudades";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h3 class="texto">Listado de Ciudades</h3>
+
+<p class="texto">
+    @Html.ActionLink("Agregar", "AltaCiudad")
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color texto">
+        <div>
+            <div>
+                Ciudad: @Html.TextBox("dato", "")
+                <input type="submit" value="Filtrar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<table class="table texto">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ciudad)
+        </td>
+        <td>
+            @Html.ActionLink("Modificar", "ModificarCiudad", new { item.CodigoC }) |
+            @Html.ActionLink("Consultar", "BuscarCiudades", new { item.CodigoC }) |
+            @Html.ActionLink("Eliminar", "BajaCiudad", new { item.CodigoC })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="texto">
+    <br />
+    @Html.ActionLink("Volver al Menu", "Menu", "Home")
+</div>
+
+@ViewBag.Mensaje

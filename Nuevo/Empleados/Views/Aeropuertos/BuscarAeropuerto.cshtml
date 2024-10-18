@@ -1,0 +1,67 @@
+﻿@model EntidadesCompartidas.Aeropuertos
+
+@{ 
+    ViewBag.Title = "BuscarAeropuerto";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2 class="texto">Consultar Aeropuerto</h2>
+
+<div class="texto">
+    <h4>Aeropuertos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImpuestoPar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImpuestoPar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImpuestoLle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImpuestoLle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudad.Ciudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad.Ciudad)
+        </dd>
+
+        
+        @Html.ActionLink("Volver al Listado", "ListarAeropuertos")
+    </dl>
+</div>
+
+@ViewBag.Mensaje

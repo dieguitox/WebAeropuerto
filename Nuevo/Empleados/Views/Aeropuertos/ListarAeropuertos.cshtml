@@ -1,0 +1,87 @@
+﻿@model IEnumerable<EntidadesCompartidas.Aeropuertos>
+
+@{
+    ViewBag.Title = "ListarAeropuertos";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+
+<h2 class="texto">Listado de Aeropuertos</h2>
+
+<p class="texto">
+    @Html.ActionLink("Agregar Aeropuerto", "AltaAeropuerto")
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color class="texto"">
+        <div>
+            <div>
+                Aeropuerto: @Html.TextBox("dato", "")
+                <input type="submit" value="Filtrar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table texto">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImpuestoLle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImpuestoPar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (EntidadesCompartidas.Aeropuertos item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImpuestoLle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImpuestoPar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ciudad.Ciudad)
+            </td>
+            <td>
+                @Html.ActionLink("Modificar", "ModificarAeropuerto", new {item.CodigoA}) @**@
+                @Html.ActionLink("Consultar", "BuscarAeropuerto", new { item.CodigoA })
+                @Html.ActionLink("Borrar", "EliminarAeropuerto", new { item.CodigoA })
+            </td>
+        </tr>
+    }
+</table>
+<p class="texto">
+    @Html.ActionLink("Volver al Menu", "Menu", "Home")
+</p>
+
+@ViewBag.Mensaje

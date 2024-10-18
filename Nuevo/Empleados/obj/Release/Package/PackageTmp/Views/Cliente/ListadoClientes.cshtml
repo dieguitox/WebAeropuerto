@@ -1,0 +1,74 @@
+﻿@model IEnumerable<EntidadesCompartidas.Clientes>
+
+@{ 
+    ViewBag.Title = "ListadoClientes";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>Listado de Clientes</h2>
+
+<p>
+    @Html.ActionLink("Agregar Cliente", "AltaCliente")
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <div>
+            <div>
+                Cliente: @Html.TextBox("dato", "")
+                <input type="submit" value="Filtrar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NroPasaporte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NroTarjeta)
+        </th><th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NroPasaporte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.NroTarjeta)
+        </th>
+        <td>
+            @Html.ActionLink("Modificar", "ModificarCliente", new { item.NroPasaporte }) 
+            @Html.ActionLink("Consultar", "BuscarClientes", new { item.NroPasaporte })
+            @Html.ActionLink("Borrar", "BajaCliente", new { item.NroPasaporte })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    <br />
+    @Html.ActionLink("Volver al Menu", "Menu", "Home")
+</div>
+
+@ViewBag.Mensaje

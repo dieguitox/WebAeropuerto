@@ -1,0 +1,68 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.texto{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+}
+
+.blue{
+    background-color:aliceblue;
+}
+
+.white{
+    color:white;
+}
+
+.titulo{
+    font-size: 6rem;
+    color:blue;
+}
+
+.filtro-vuelos {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; 
+}
+
+.filtro-vuelos > div {
+    margin-right: 10px; 
+}
+
+.input-filtro {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px; 
+}
+
+.btn-filtro, .btn-limpiar {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-limpiar {
+    background-color: #6c757d;
+}
+
+.btn-filtro:hover, .btn-limpiar:hover {
+    background-color: #0056b3;
+}

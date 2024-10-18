@@ -1,0 +1,61 @@
+﻿@model EntidadesCompartidas.Clientes
+
+@{ 
+    ViewBag.Title = "BajaCliente";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h3 class="texto">Seguro que quiere eliminar este cliente?</h3>
+<div class="texto">
+    <h4>Clientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NroPasaporte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NroPasaporte)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NroTarjeta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NroTarjeta)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+        </div>
+    }
+</div>
+
+<div class="texto">
+    <br />
+    @Html.ActionLink("Volver al listado", "ListadoClientes")
+</div>
+
+@ViewBag.Mensaje

@@ -1,0 +1,7 @@
+C:\Users\Usuario\Desktop\Estudio\Bios\Obligatorios\Proyecto Final Aerolina Segundo\Nuevo\Solucion\Persistencias\bin\Release\Persistencias.dll
+C:\Users\Usuario\Desktop\Estudio\Bios\Obligatorios\Proyecto Final Aerolina Segundo\Nuevo\Solucion\Persistencias\bin\Release\Persistencias.pdb
+C:\Users\Usuario\Desktop\Estudio\Bios\Obligatorios\Proyecto Final Aerolina Segundo\Nuevo\Solucion\Persistencias\bin\Release\EntidadesCompartidas.dll
+C:\Users\Usuario\Desktop\Estudio\Bios\Obligatorios\Proyecto Final Aerolina Segundo\Nuevo\Solucion\Persistencias\bin\Release\EntidadesCompartidas.pdb
+C:\Users\Usuario\Desktop\Estudio\Bios\Obligatorios\Proyecto Final Aerolina Segundo\Nuevo\Solucion\Persistencias\obj\Release\Persistencias.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Desktop\Estudio\Bios\Obligatorios\Proyecto Final Aerolina Segundo\Nuevo\Solucion\Persistencias\obj\Release\Persistencias.dll
+C:\Users\Usuario\Desktop\Estudio\Bios\Obligatorios\Proyecto Final Aerolina Segundo\Nuevo\Solucion\Persistencias\obj\Release\Persistencias.pdb

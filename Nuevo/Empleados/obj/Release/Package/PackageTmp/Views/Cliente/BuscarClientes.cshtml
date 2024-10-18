@@ -1,0 +1,51 @@
+﻿@model EntidadesCompartidas.Clientes
+
+@{ 
+    ViewBag.Title = "BuscarClientes";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<div>
+    <h4>Buscar Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NroPasaporte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NroPasaporte)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NroTarjeta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NroTarjeta)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <br />
+    @Html.ActionLink("Volver al listado", "ListadoClientes")
+</div>
+
+@ViewBag.Mensaje

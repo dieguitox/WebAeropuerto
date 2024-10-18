@@ -1,0 +1,45 @@
+﻿@model EntidadesCompartidas.Ciudades
+
+@{ 
+    ViewBag.Title = "BuscarCiudades";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<div class="texto">
+    <h4>Buscar Ciudad</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad)
+        </dd>
+
+    </dl>
+</div>
+
+
+<div class="texto">
+    <br />
+    @Html.ActionLink("Volver al listado", "ListadoCiudades")
+</div>
+
+@ViewBag.Mensaje

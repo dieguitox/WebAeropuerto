@@ -1,0 +1,54 @@
+﻿@model EntidadesCompartidas.Ciudades
+
+@{ 
+    ViewBag.Title = "BajaCiudad";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h3>Seguro desea eliminar esta ciudad?</h3>
+
+<div>
+    <h4>Ciudades</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+        </div>
+    }
+</div>
+
+<div>
+    <br />
+    @Html.ActionLink("Volver al Listado", "Menu","Home")
+</div>
+
+@ViewBag.Mensaje

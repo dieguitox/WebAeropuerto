@@ -1,0 +1,48 @@
+﻿@model EntidadesCompartidas.Ventas
+
+@{ 
+    ViewBag.Title = "AltaVenta";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2 class="texto">Generar Venta</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal texto">
+        <h4>Ventas</h4>
+
+        <table class="table-bordered">
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Vue.CodigoV, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.DropDownListFor(model => model.Vue.CodigoV, (SelectList)ViewBag.ListadoVuelos, "-- Seleccione un Vuelo --", new { @class = "form-control" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Cli.NroPasaporte, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.DropDownListFor(model => model.Cli.NroPasaporte, (SelectList)ViewBag.ListadoClientes, "-- Seleccione un Cliente --", new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Crear Venta" class="btn btn-default" />
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+
+<div class="texto">
+    @Html.ActionLink("Volver al Menu", "Menu","Home")
+</div>
+
+@ViewBag.Mensaje

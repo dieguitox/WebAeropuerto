@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AeropuertosAmericanosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Adquieren">
+    <Key>
+      <PropertyRef Name="nroPasaporte" />
+      <PropertyRef Name="nroTicket" />
+    </Key>
+    <Property Name="nroPasaporte" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nroTicket" Type="Int32" Nullable="false" />
+    <Property Name="nroAsiento" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK__Adquieren__nroPa__2D27B809" FromRole="Adquieren" ToRole="Clientes" />
+  </EntityType>
+  <EntityType Name="Aeropuertos">
+    <Key>
+      <PropertyRef Name="codigoA" />
+    </Key>
+    <Property Name="codigoA" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombreA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="impuestoPartida" Type="Double" Nullable="false" />
+    <Property Name="impuestoLlegada" Type="Double" Nullable="false" />
+    <Property Name="codigoC" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Ciudades" Relationship="Self.FK__Aeropuert__codig__145C0A3F" FromRole="Aeropuertos" ToRole="Ciudades" />
+  </EntityType>
+  <EntityType Name="Ciudades">
+    <Key>
+      <PropertyRef Name="codigoC" />
+    </Key>
+    <Property Name="codigoC" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ciudad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pais" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="nroPasaporte" />
+    </Key>
+    <Property Name="nroPasaporte" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contrasenia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nroTarjeta" Type="Int64" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="usuario" />
+    </Key>
+    <Property Name="usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contrasenia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cargo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="nroTicket" />
+    </Key>
+    <Property Name="nroTicket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="monto" Type="Double" Nullable="false" />
+    <Property Name="fechaCompra" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="nroPasaporte" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="codigoV" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Adquieren" Relationship="Self.FK__Adquieren__nroTi__2E1BDC42" FromRole="Venta" ToRole="Adquieren" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK__Venta__nroPasapo__267ABA7A" FromRole="Venta" ToRole="Clientes" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK__Venta__usuario__276EDEB3" FromRole="Venta" ToRole="Empleados" />
+    <NavigationProperty Name="Vuelos" Relationship="Self.FK__Venta__codigoV__286302EC" FromRole="Venta" ToRole="Vuelos" />
+  </EntityType>
+  <EntityType Name="Vuelos">
+    <Key>
+      <PropertyRef Name="codigoV" />
+    </Key>
+    <Property Name="codigoV" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fechaD" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fechaA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="precio" Type="Double" Nullable="false" />
+    <Property Name="cantAsientos" Type="Int32" Nullable="false" />
+    <Property Name="codigoA" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="codigoB" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Aeropuertos" Relationship="Self.FK__Vuelos__codigoA__1DE57479" FromRole="Vuelos" ToRole="Aeropuertos" />
+    <NavigationProperty Name="Aeropuertos1" Relationship="Self.FK__Vuelos__codigoB__1ED998B2" FromRole="Vuelos" ToRole="Aeropuertos" />
+  </EntityType>
+  <Association Name="FK__Adquieren__nroPa__2D27B809">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Adquieren" Type="Self.Adquieren" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="nroPasaporte" />
+      </Principal>
+      <Dependent Role="Adquieren">
+        <PropertyRef Name="nroPasaporte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Adquieren__nroTi__2E1BDC42">
+    <End Role="Venta" Type="Self.Venta" Multiplicity="1" />
+    <End Role="Adquieren" Type="Self.Adquieren" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venta">
+        <PropertyRef Name="nroTicket" />
+      </Principal>
+      <Dependent Role="Adquieren">
+        <PropertyRef Name="nroTicket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Aeropuert__codig__145C0A3F">
+    <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="1" />
+    <End Role="Aeropuertos" Type="Self.Aeropuertos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudades">
+        <PropertyRef Name="codigoC" />
+      </Principal>
+      <Dependent Role="Aeropuertos">
+        <PropertyRef Name="codigoC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vuelos__codigoA__1DE57479">
+    <End Role="Aeropuertos" Type="Self.Aeropuertos" Multiplicity="1" />
+    <End Role="Vuelos" Type="Self.Vuelos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuertos">
+        <PropertyRef Name="codigoA" />
+      </Principal>
+      <Dependent Role="Vuelos">
+        <PropertyRef Name="codigoA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vuelos__codigoB__1ED998B2">
+    <End Role="Aeropuertos" Type="Self.Aeropuertos" Multiplicity="1" />
+    <End Role="Vuelos" Type="Self.Vuelos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aeropuertos">
+        <PropertyRef Name="codigoA" />
+      </Principal>
+      <Dependent Role="Vuelos">
+        <PropertyRef Name="codigoB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Venta__nroPasapo__267ABA7A">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="nroPasaporte" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="nroPasaporte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Venta__usuario__276EDEB3">
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="usuario" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Venta__codigoV__286302EC">
+    <End Role="Vuelos" Type="Self.Vuelos" Multiplicity="1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vuelos">
+        <PropertyRef Name="codigoV" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="codigoV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Adquieren" EntityType="Self.Adquieren" />
+    <EntitySet Name="Aeropuertos" EntityType="Self.Aeropuertos" />
+    <EntitySet Name="Ciudades" EntityType="Self.Ciudades" />
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+    <EntitySet Name="Venta" EntityType="Self.Venta" />
+    <EntitySet Name="Vuelos" EntityType="Self.Vuelos" />
+    <AssociationSet Name="FK__Adquieren__nroPa__2D27B809" Association="Self.FK__Adquieren__nroPa__2D27B809">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Adquieren" EntitySet="Adquieren" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Adquieren__nroTi__2E1BDC42" Association="Self.FK__Adquieren__nroTi__2E1BDC42">
+      <End Role="Venta" EntitySet="Venta" />
+      <End Role="Adquieren" EntitySet="Adquieren" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Aeropuert__codig__145C0A3F" Association="Self.FK__Aeropuert__codig__145C0A3F">
+      <End Role="Ciudades" EntitySet="Ciudades" />
+      <End Role="Aeropuertos" EntitySet="Aeropuertos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vuelos__codigoA__1DE57479" Association="Self.FK__Vuelos__codigoA__1DE57479">
+      <End Role="Aeropuertos" EntitySet="Aeropuertos" />
+      <End Role="Vuelos" EntitySet="Vuelos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vuelos__codigoB__1ED998B2" Association="Self.FK__Vuelos__codigoB__1ED998B2">
+      <End Role="Aeropuertos" EntitySet="Aeropuertos" />
+      <End Role="Vuelos" EntitySet="Vuelos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Venta__nroPasapo__267ABA7A" Association="Self.FK__Venta__nroPasapo__267ABA7A">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Venta__usuario__276EDEB3" Association="Self.FK__Venta__usuario__276EDEB3">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Venta__codigoV__286302EC" Association="Self.FK__Venta__codigoV__286302EC">
+      <End Role="Vuelos" EntitySet="Vuelos" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
